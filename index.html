@@ -418,18 +418,18 @@
                     Fechar    
                 </a>
                 <div class="etapas">
-                    <div class="etapa etapa-1 active">1</div>
-                    <div class="etapa etapa-2">2</div>
-                    <div class="etapa etapa-3">3</div>
+                    <div class="etapa etapa1 active">1</div>
+                    <div class="etapa etapa2">2</div>
+                    <div class="etapa etapa3">3</div>
                 </div>
                 <p class="title-carrinho mt-4">
-                    <b class="lblTituloEtapoa"> Seu carrinho: </b>
+                    <b class="lblTituloEtapa"> Seu carrinho: </b>
                 </p>
 
                 </div>
             </div>
 
-        </div>
+        
         <div class="m-body">
 
             <div class="container">
@@ -438,7 +438,7 @@
 
                     <div class=" col-12 item-carrinho">
                         <div class="img-produto">
-                            <img src="img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg"/>
+                            <img src="./img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg"/>
                         </div>
                         <div class="dados-produto">
                             <p class="title-produto"><b>Nome de produto: </b></p>
@@ -465,8 +465,24 @@
 
         </div>
         <div class="m-footer">
-
+            <div class="container">
+                <div class="container-total text-right mb-4">
+                    <p class="mb-0">
+                        <span>Subtotal:</span>
+                        <span id="lblSubtotal">R$ 95,00</span>
+                    </p>
+                    <p class="mb-0 texto-entrega">
+                        <span><i class="fas fa-motorcycle"></i> Entrega:</span>
+                        <span id="lblValorEntrega"> + R$ 5,00</span>
+                    </p>
+                    <p class="mb-0 texto-total">
+                        <span><b>Total: </b>></span>
+                        <span class="valor-total" id="lblValortotal"><b>R$ 100,00</b>></span>
+                    </p>
+                </div>
+            </div>
         </div>
+    </div>
 
     </div>
 
@@ -474,17 +490,8 @@
     <script type="text/javascript" src="js/modernizr-3.5.0.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/popper.min.js"></script>
-    <script>
-        let img = new Image();
-            img.src = './img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg';
-            img.onload = function() {
-                console.log("Imagem carregada com sucesso.");
-            }
-            img.onerror = function() {
-                console.log("Erro ao carregar a imagem.");
-            }
-
-    </script>
+    
+   
 
     
 </body>
