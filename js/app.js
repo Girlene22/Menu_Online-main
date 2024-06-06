@@ -25,17 +25,15 @@ cardapio.metodos = {
         //limpa os itens listados da categoria atual para listar os itens da próxima categoria selecionada
         $("#itensCardapio").html('')
         //funciona como um foreach do javascript
-        $.each(filtro,(i, e) => {
-            //substitui o itemn atual pelas imagens do cardápio
+        $.each(filtro, (i, e) => {
+            // substitui o item atual pelas imagens do cardápio
             let temp = cardapio.templates.item.replace(/\${img}/g, e.img)
-            .replace(/\${nome}/g, e.name)
-            .replace(/\${preco}/g, e.price.toFixed(2).replace`.`,`,`)
-
-
-            $("#itensCardapio").append(temp)
-
-        })
-
+                .replace(/\${nome}/g, e.name)
+                .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ','));
+        
+            $("#itensCardapio").append(temp);
+        });
+        
         //remove o botão ativo 
         $(".container-menu a").removeClass('active');
         //seta o menu para ativo
