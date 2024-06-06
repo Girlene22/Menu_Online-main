@@ -10,28 +10,41 @@ var cardapio = {
 cardapio.eventos = {
 
     init: () => {
-
+        cardapio.metodos.obterItensCardapio();
     }
 
 }
 
 cardapio.metodos = {
     //metodo usado para obter a lista de itens do cardapio
-    obterItensCardapio: () => {
+    obterItensCardapio: (categoria = 'burgers') => {
 
-        var filtro = MENU['burgers'];
+        var filtro = MENU[categoria];
         console.log(filtro);
 
+        //limpa os itens listados da categoria atual para listar os itens da próxima categoria selecionada
+        $("#itensCardapio").html('')
         //funciona como um foreach do javascript
         $.each(filtro,(i, e) => {
+            //substitui o itemn atual pelas imagens do cardápio
+            let temp = cardapio.templates.item.replace(/\${img}/g, e.img)
+            .replace(/\${nome}/g, e.name)
+            .replace(/\${preco}/g, e.price.toFixed(2).replace`.`,`,`)
+
+
+            $("#itensCardapio").append(temp)
 
         })
 
+        //remove o botão ativo 
+        $(".container-menu a").removeClass('active');
+        //seta o menu para ativo
+        $("#menu-"+ categoria).addClass('active');
     },
 }
 
 
-cardapio.tamplates = {
+cardapio.templates = {
 
     //adicionei aspas invertidas para possibilitar a quebra de linha no js
 
@@ -40,13 +53,13 @@ cardapio.tamplates = {
         <div class="col-3 mb-5">
             <div class="card card-item">
                 <div class="img-produto">
-                    <img src="img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg"/>
+                    <img src="\${img}"/>
                 </div>
                     <p class="title-produto text-center mt-4">
-                        <b>Nome do produto</b>
+                        <b>\${nome}</b>
                     </p>
                     <p class="price-produto text-center ">
-                        <b>R$35,00</b>
+                        <b>R$\${preco}</b>
                     </p>
                 <div class="add-carrinho">
                     <span class="btn-menos"><i class="fas fa-minus"></i></span>
