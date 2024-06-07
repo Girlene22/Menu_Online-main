@@ -17,21 +17,34 @@ cardapio.eventos = {
 
 cardapio.metodos = {
     //metodo usado para obter a lista de itens do cardapio
-    obterItensCardapio: (categoria = 'burgers') => {
+    obterItensCardapio: (categoria = 'burgers', vermais = false) => {
 
         var filtro = MENU[categoria];
         console.log(filtro);
 
         //limpa os itens listados da categoria atual para listar os itens da próxima categoria selecionada
-        $("#itensCardapio").html('')
+        if (!vermais) {
+            $("#itensCardapio").html('');
+            $("#btnVerMais").removeClass('hidden');
+        }
+        
         //funciona como um foreach do javascript
         $.each(filtro, (i, e) => {
             // substitui o item atual pelas imagens do cardápio
             let temp = cardapio.templates.item.replace(/\${img}/g, e.img)
                 .replace(/\${nome}/g, e.name)
                 .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ','));
-        
-            $("#itensCardapio").append(temp);
+
+            //essa condição faz com que os itens que estejam ocultos sejam exibidos ao clicar no botão ver mais, exibindo assim os 12 itens
+            if (vermais && 1 >= 8 && i < 12) {
+                $("#itensCardapio").append(temp);
+
+            }
+
+            //paginação inicial (8 itens)
+            if (!vermais && i < 8) {
+                $("#itensCardapio").append(temp);
+            }
         });
         
         //remove o botão ativo 
@@ -39,8 +52,15 @@ cardapio.metodos = {
         //seta o menu para ativo
         $("#menu-"+ categoria).addClass('active');
     },
-}
+    //Clique no botão de ver mais
+    verMais: () => {
 
+        var ativo = $(".container-menu a.active").attr('id').split('menu-')[1];
+        cardapio.metodos.obterItensCardapio(ativo, true)
+
+       // $("#btnVerMais").addClass('hidden');
+    },
+}
 
 cardapio.templates = {
 
