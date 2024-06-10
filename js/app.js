@@ -1,9 +1,11 @@
-//quando o documento for carregado e validado então começamos a carregar os metodos e funções
 $(document).ready(function () {
     cardapio.eventos.init();
 });
 
+var MEU_CARRINHO = [];
+
 var cardapio = {
+
     eventos: {
         init: () => {
             cardapio.metodos.obterItensCardapio();
@@ -11,55 +13,83 @@ var cardapio = {
     },
 
     metodos: {
-        //metodo usado para obter a lista de itens do cardapio
         obterItensCardapio: (categoria = 'burgers', vermais = false) => {
             var filtro = MENU[categoria];
             console.log(filtro);
 
-            //limpa os itens listados da categoria atual para listar os itens da próxima categoria selecionada
             if (!vermais) {
                 $("#itensCardapio").html('');
                 $("#btnVerMais").removeClass('hidden');
             }
             
-            //funciona como um foreach do javascript
             $.each(filtro, (i, e) => {
-                // substitui o item atual pelas imagens do cardápio
                 let temp = cardapio.templates.item.replace(/\${img}/g, e.img)
                     .replace(/\${nome}/g, e.name)
-                    .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ','));
+                    .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ','))
+                    .replace(/\${id}/g, e.id);
 
-                //essa condição faz com que os itens que estejam ocultos sejam exibidos ao clicar no botão ver mais, exibindo assim os 12 itens
                 if (vermais && i >= 8 && i < 12) {
                     $("#itensCardapio").append(temp);
                 }
 
-                //paginação inicial (8 itens)
                 if (!vermais && i < 8) {
                     $("#itensCardapio").append(temp);
                 }
             });
-            
-            //remove o botão ativo 
+
             $(".container-menu a").removeClass('active');
-            //seta o menu para ativo
-            $("#menu-"+ categoria).addClass('active');
+            $("#menu-" + categoria).addClass('active');
         },
 
-        //Clique no botão de ver mais
         verMais: () => {
             var ativo = $(".container-menu a.active").attr('id').split('menu-')[1];
             cardapio.metodos.obterItensCardapio(ativo, true);
 
             $("#btnVerMais").addClass('hidden');
+        },
+
+        diminuirQuantidade: (id) => {
+            let qntdAtual = parseInt($("#qntd-" + id).text());
+
+            if (qntdAtual > 0) {
+                $("#qntd-" + id).text(qntdAtual - 1);
+            }
+        },
+
+        aumentarQuantidade: (id) => {
+            let qntdAtual = parseInt($("#qntd-" + id).text());
+            $("#qntd-" + id).text(qntdAtual + 1);
+        }
+    },
+
+    adicionarAoCarrinho: (id) => {
+        let qntdAtual = parseInt($("#qntd-" + id).text());
+
+        if (qntdAtual > 0) {
+            var categoria = $(".container-menu a.active").attr('id').split('menu-')[1];
+            let filtro = MENU[categoria];
+            let item = $.grep(filtro, (e, i) => { return e.id == id });
+
+            if (item.length > 0) {
+                let existe = $.grep(MEU_CARRINHO, (elem, index) => { return elem.id == id });
+
+                if (existe.length > 0) {
+                    let objIndex = MEU_CARRINHO.findIndex((obj => obj.id == id));
+                    MEU_CARRINHO[objIndex].qntd = MEU_CARRINHO[objIndex].qntd + qntdAtual;
+                } else {
+                    item[0].qntd = qntdAtual;
+                    MEU_CARRINHO.push(item[0]);
+                }
+
+                $("#qntd-" + id).text(0);
+            }
         }
     },
 
     templates: {
-        //adicionei aspas invertidas para possibilitar a quebra de linha no js
         item: `
             <div class="col-3 mb-5">
-                <div class="card card-item">
+                <div class="card card-item" id="\${img}">
                     <div class="img-produto">
                         <img src="\${img}"/>
                     </div>
@@ -70,13 +100,15 @@ var cardapio = {
                         <b>R$\${preco}</b>
                     </p>
                     <div class="add-carrinho">
-                        <span class="btn-menos"><i class="fas fa-minus"></i></span>
-                        <span class="add-numero-itens">0</span>
-                        <span class="btn-mais"><i class="fas fa-plus"></i></span>
-                        <span class="btn btn-add"><i class="fa fa-shopping-bag"></i></span>
+                        <span class="btn-menos" onclick="cardapio.metodos.diminuirQuantidade('\${id}')"><i class="fas fa-minus"></i></span>
+                        <span class="add-numero-itens" id="qntd-\${id}">0</span>
+                        <span class="btn-mais" onclick="cardapio.metodos.aumentarQuantidade('\${id}')"><i class="fas fa-plus"></i></span>
+                        <span class="btn btn-add" onclick="cardapio.adicionarAoCarrinho('\${id}')"><i class="fa fa-shopping-bag"></i></span>
                     </div>
                 </div>
             </div>
         `
     }
 };
+
+
