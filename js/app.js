@@ -84,6 +84,25 @@ var cardapio = {
                 $("#qntd-" + id).text(0);
             }
         }
+        //atualiza os badge totais dos botões "Meu Carrinho"
+        atualizarBadgeTotal: () => {
+
+            var total = 0;
+
+            $.each(MEU_CARRINHO, (i, e) => {
+                total += e.qntd
+            })
+
+            if (total > 0){
+
+                $(".botao-carrinho")
+
+            }else{
+
+            }
+
+        }
+
     },
 
     templates: {
