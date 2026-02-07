@@ -12,8 +12,12 @@
 </head>
 <body>
 
+    <div class="container-mensagens" id="container-mensagens">
+
+    </div>
+
     <a class="botao-carrinho">
-        <div class="badge-total-carrinho"> 8 </div>
+        <div class="badge-total-carrinho hidden" onclick="cardapio.metodos.abrirCarrinho(true)"> 0 </div>
         <i class="fa fa-shopping-bag"></i>
     </a>
 
@@ -46,7 +50,7 @@
                     <a class="btn btn-white btn-icon">
                         Meu carrinho 
                         <span class="icon">
-                            <div class="container-total-carrinho badge-total-carrinho"> 8 </div>
+                            <div class="container-total-carrinho badge-total-carrinho hidden" onclick="cardapio.metodos.abrirCarrinho(true)"> 0 </div>
                             <i class="fa fa-shopping-bag"></i>
                         </span>
                     </a>
@@ -342,7 +346,7 @@
     <div class="modal-full hidden" id="modalCarrinho">
         <div class="m-header">
             <div class="container">
-                <a class="btn btn-white btn-sm float-right">
+                <a class="btn btn-white btn-sm float-right" onclick="cardapio.metodos.abrirCarrinho(false)">
                     Fechar    
                 </a>
                 <div class="etapas">
