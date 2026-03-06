@@ -16,6 +16,12 @@ var cardapio = {
         init: () => {
             // carrega o cardápio padrão (burgers)
             cardapio.metodos.obterItensCardapio();
+            cardapio.metodos.carregarBotaoLigar();
+            cardapio.metodos.carregarBotaoWhasApp();
+            cardapio.metodos.carregarBotaoReserva();
+
+            
+            
         }
     },
 
@@ -395,6 +401,53 @@ var cardapio = {
                 })
 
             }
+
+        },
+
+        carregarBotaoReserva: () => { 
+
+            var texto = 'Olá, gostaria de fazer uma *reserva*:';
+
+            let encode = encodeURI(texto);
+            let URL = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`;
+
+            $("#btnReserva").attr('href', URL);
+
+        },
+
+        carregarBotaoLigar: () => {
+
+            $("btnLigar").attr('href', `tel:${CELULAR_EMPRESA}`);
+
+        },
+
+        carregarBotaoWhasApp: () => { 
+
+            var texto = '';
+
+            let encode = encodeURI(texto);
+            let URL = `https://wa.me/${CELULAR_EMPRESA}?text=${encode}`;
+
+            $(".btnWhatsApp").attr('href', URL);
+
+        },
+        
+
+        
+
+        abrirDepoimento: (depoimento) => {
+
+            $("#depoimento-1").addClass('hidden');
+            $("#depoimento-2").addClass('hidden');
+            $("#depoimento-3").addClass('hidden');
+
+            $("#btnDepoimento-1").removeClass('active');
+            $("#btnDepoimento-2").removeClass('active');
+            $("#btnDepoimento-3").removeClass('active');
+
+            $("#depoimento-" + depoimento).removeClass('hidden');
+            $("#btnDepoimento-" + depoimento).addClass('active');
+
 
         },
 

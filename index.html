@@ -44,12 +44,20 @@
                     <div class="d-flex text-banner">
                         <h1><b>Escolha sua comida <b class="color-primary">favorita.</b></b></h1>
                         <p>Aproveite nosso cardápio! Escolha o que desejar e receba de forma rápida e segura.</p>
-                        <div> <a class="btn btn-yellow mt-4 mr-3"> Ver Cardápio </a> <a href="#"
-                                class="btn btn-white btn-icon-left mt-4"> <span class="icon-left"> <i
-                                        class="fa fa-phone"></i> </span> (81) 99993-9191 </a> </div>
-                    </div> <a class="btn btn-sm btn-white btn-social mt-4 mr-3"> <i class="fab fa-instagram"></i> </a>
-                    <a class="btn btn-sm btn-white btn-social mt-4 mr-3"> <i class="fab fa-facebook-f"></i> </a> <a
-                        class="btn btn-sm btn-white btn-social mt-4 "> <i class="fab fa-whatsapp"></i> </a>
+                        <div> <a class="btn btn-yellow mt-4 mr-3"> 
+                            Ver Cardápio 
+                        </a>
+                        <a href="#" class="btn btn-white btn-icon-left mt-4" id="btnLigar"> 
+                                <span class="icon-left"> 
+                                    <i class="fa fa-phone"></i> 
+                                </span> 
+                                (81) 99993-9191 
+                        </a>
+                        </div>
+                    </div> 
+                    <a href="#" class="btn btn-sm btn-white btn-social mt-4 mr-3" target="_blank"> <i class="fab fa-instagram"></i> </a>
+                    <a href="#" class="btn btn-sm btn-white btn-social mt-4 mr-3" target="_blank"> <i class="fab fa-facebook-f"></i> </a> 
+                    <a href="#" class="btn btn-sm btn-white btn-social mt-4 btnWhatsApp" target="_blank"> <i class="fab fa-whatsapp"></i> </a>
                 </div>
                 <div class="col-6">
                     <div class="card-banner">
@@ -174,9 +182,10 @@
                                 o serviço nos surpreendeu. Dica: reserve umas três horas para ter uma experiência
                                 incrível. <i class="fas fa-quote-right"></i> </div>
                         </div>
-                    </div> <a class="btn btn-sm btn-white btn-social mr-3 active">1</a> <a
-                        class="btn btn-sm btn-white btn-social mr-3">2</a> <a
-                        class="btn btn-sm btn-white btn-social">3</a>
+                    </div> 
+                    <a id="btnDepoimento-1" class="btn btn-sm btn-white btn-social mr-3 active" onclick="cardapio.metodos.abrirDepoimento(1)">1</a> 
+                    <a id="btnDepoimento-2" class="btn btn-sm btn-white btn-social mr-3" onclick="cardapio.metodos.abrirDepoimento(2)" >2 </a> 
+                    <a id="btnDepoimento-3" class="btn btn-sm btn-white btn-social" onclick="cardapio.metodos.abrirDepoimento(3)">3</a>
                 </div>
             </div>
         </div>
@@ -190,7 +199,7 @@
                             <div class="col-7"> <span class="hint-title"><b>Reserva</b></span>
                                 <h1 class="tilte"> <b>Quer reservar um horário?</b> </h1>
                                 <p class="pr-5">Mande uma mensagem clicando noi botão abaixo. <br> Reserve sua data e
-                                    horário de forma simples e rápida. </p> <a class="btn btn-yellow mt-4">Fazer
+                                    horário de forma simples e rápida. </p> <a class="btn btn-yellow mt-4" href="#" id="btnReserva" target="_blank">Fazer
                                     Reserva</a>
                             </div>
                             <div class="col-5">
@@ -211,10 +220,10 @@
                 <div class="col-6 container-texto-footer">
                     <p class="mb-0"> <b>Menu On-line</b> &copy; Todos os direitos reservados. </p>
                 </div>
-                <div class="col-3 container-redes-footer"> <a class="btn btn-sm btn-white btn-social mr-3"> <i
-                            class="fab fa-instagram"></i> </a> <a class="btn btn-sm btn-white btn-social mr-3"> <i
-                            class="fab fa-facebook-f"></i> </a> <a class="btn btn-sm btn-white btn-social"> <i
-                            class="fab fa-whatsapp"></i> </a> </div>
+                <div class="col-3 container-redes-footer"> 
+                            <a href="#" class="btn btn-sm btn-white btn-social mr-3" target="_blank"> <i class="fab fa-instagram"></i> </a> 
+                            <a href="#" class="btn btn-sm btn-white btn-social mr-3" target="_blank"> <i class="fab fa-facebook-f"></i> </a> 
+                            <a href="#" class="btn btn-sm btn-white btn-social btnWhatsApp" target="_blank"> <i class="fab fa-whatsapp"></i> </a> </div>
             </div>
         </div>
     </footer>
