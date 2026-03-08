@@ -489,7 +489,7 @@ var cardapio = {
      // TEMPLATES HTML
     templates: {
         item: `
-            <div class="col-3 mb-5">
+            <div class="col-3 mb-5 animated fadeInUp">
                 <div class="card card-item" id="produto-\${id}">
                     <div class="img-produto"><img src="\${img}"/></div>
                     <p class="title-produto text-center mt-4"><b>\${nome}</b></p>
