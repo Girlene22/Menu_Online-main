@@ -30,7 +30,8 @@ O Sistema de Cardápio e Pedido Online é um front-end funcional para restaurant
 
 - **Clone este repositório:**
 
-git clone https://github.com/SEU_USUARIO/cardapio-online.git
+git clone https://github.com/Girlene22/Menu_Online-main.git
+
 
         Abra o arquivo index.html no navegador.
         Navegue pelo cardápio e adicione produtos ao carrinho.
