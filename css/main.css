@@ -17,7 +17,7 @@
     --color-primary:#ffbf00;
     --color-secondary:#fff2cc;
     --color-white:#ffffff;
-    --color-red:#e74c3c;
+    --color-red:#bb1705;
     --color-green:#2ecc71;
     --color-separate:#cccccc;
 
@@ -61,16 +61,19 @@ a.navbar-brand {
 
 .btn-white.active, .btn-white:hover {
     background-color: var(--color-primary);
+    color: #bb1705!important;
 }
 
 .btn-icon {
-    padding-right: 75px;
+    padding-right: 65px;
+    position: relative;
 }
+
 
 .btn-icon .icon {
     display: inline-block;
-    color: var(--color-black);
-    background-color: var(--color-primary);
+    color: var(--color-red);
+    background-color: var(--color-secondary);
     width: 45px;
     height: 45px;
     position: absolute;
@@ -84,6 +87,9 @@ a.navbar-brand {
 .banner{
     padding-top: 110px;
     padding-bottom: 200px;
+}
+.banner h1 {
+    color: var(--color-red)!important;
 }
 
 .text-banner {
@@ -151,7 +157,7 @@ a.navbar-brand {
 .img-banner img {
     position: absolute;
     width: 570px;
-    top:30px;
+    top:-120px;
     right: 15px;
 }
 
@@ -174,7 +180,7 @@ a.navbar-brand {
 .card-case-name {
     position: absolute;
     font-size: 12px;
-    color: var(--color-primary);
+    color: var(--color-red);
     right: 20px;
     bottom: 10px;
 }
@@ -223,7 +229,7 @@ a.navbar-brand {
     left: 0;
     right: 0;
     height: 500px;
-    background-image: url(../img/bg-icons-2.png);
+    background-image: url(../img/bg-icons-p2.png);
 }
 .cardapio {
     padding-top: 50px;
@@ -234,7 +240,7 @@ a.navbar-brand {
     left: 0;
     right: 0;
     height: 500px;
-    background-image: url(../img/bg-icons-1.png);
+    background-image: url(../img/bg-icons-p1.png);
 }
 .container-menu {
     margin-bottom: 40px;
@@ -337,7 +343,7 @@ a.navbar-brand {
     left: 0;
     right: 0;
     height: 500px;
-    background-image: url(../img/bg-icons-1.png);
+    background-image: url(../img/bg-icons-p1.png);
 }
 .imagem-depoimento {
     width: 65px;
@@ -636,7 +642,7 @@ select.form-control {
     width: 25px;
     height: 25px;
     position: absolute;
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     border-radius: 50px;
     right: -5px;
     top: -5px;
@@ -651,13 +657,13 @@ select.form-control {
     bottom: 50px;
     height: 50px;
     width: 50px;
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-    color: var(--color-black-heavy)!important;
+    color: var(--color-red)!important;
     border-radius: 50px;
     cursor: pointer;
     z-index: 1;

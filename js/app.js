@@ -79,21 +79,22 @@ var cardapio = {
         },
         // soma a quantidade total de itens no carrinho
         atualizarBadgeTotal: () => {
-            var total = 0;
-            $.each(MEU_CARRINHO, (i, e) => {
-                total += e.qntd;
-            });
-            // se tiver itens no carrinho
-            if (total > 0) {
-                // mostra TODOS os badges (topo e botão de baixo)
-                $(".badge-total-carrinho").removeClass('hidden');
-            } else {
-                // esconde TODOS os badges
-                $(".badge-total-carrinho").addClass('hidden');
-            }
-            // atualiza o número exibido nos badges
-            $(".badge-total-carrinho").html(total);
-        },
+    var total = 0;
+    $.each(MEU_CARRINHO, (i, e) => {
+        total += e.qntd;
+    });
+
+    // se tiver itens no carrinho
+    if (total > 0) {
+        $(".badge-total-carrinho").removeClass('hidden');
+        $(".botao-carrinho").removeClass('hidden'); // MOSTRA botão sacola
+    } else {
+        $(".badge-total-carrinho").addClass('hidden');
+        $(".botao-carrinho").addClass('hidden'); // ESCONDE botão sacola
+    }
+
+    $(".badge-total-carrinho").html(total);
+},
 
         // abrir a modal de carrinho
 
@@ -489,7 +490,7 @@ var cardapio = {
      // TEMPLATES HTML
     templates: {
         item: `
-            <div class="col-3 mb-5 animated fadeInUp">
+            <div class="col-12 col-lg-3 col-md-3 col-sm-6 mb-5 animated fadeInUp">
                 <div class="card card-item" id="produto-\${id}">
                     <div class="img-produto"><img src="\${img}"/></div>
                     <p class="title-produto text-center mt-4"><b>\${nome}</b></p>
@@ -516,7 +517,7 @@ var cardapio = {
                     <span class="btn-menos" onclick="cardapio.metodos.diminuirQuantidadeCarrinho('\${id}')">-</span>
                     <span class="add-numero-itens" id="qntd-carrinho-\${id}">\${qntd}</span>
                     <span class="btn-mais" onclick="cardapio.metodos.aumentarQuantidadeCarrinho('\${id}')">+</span>
-                    <span class="btn btn-remove" onclick="cardapio.metodos.removerItemCarrinho('\${id}')"><i class="fa fa-times"></i></span>
+                    <span class="btn btn-remove no-mobile" onclick="cardapio.metodos.removerItemCarrinho('\${id}')"><i class="fa fa-times"></i></span>
                 </div>
             </div>`,
 
