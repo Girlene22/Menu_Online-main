@@ -418,7 +418,7 @@ var cardapio = {
 
         carregarBotaoLigar: () => {
 
-            $("btnLigar").attr('href', `tel:${CELULAR_EMPRESA}`);
+            $("#btnLigar").attr('href', `tel:${CELULAR_EMPRESA}`);
 
         },
 
