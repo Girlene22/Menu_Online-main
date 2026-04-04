@@ -27,10 +27,13 @@ O Sistema de Cardápio e Pedido Online é um front-end funcional para restaurant
 ![Tela inicial para Deasktop](image-1.png)
 
 # Como executar o projeto
+Acesse o link: https://girlene22.github.io/Menu_Online-main/
 
+Caso prefira ver o código
 - **Clone este repositório:**
 
-git clone https://github.com/SEU_USUARIO/cardapio-online.git
+git clone https://github.com/Girlene22/Menu_Online-main.git
+
 
         Abra o arquivo index.html no navegador.
         Navegue pelo cardápio e adicione produtos ao carrinho.
